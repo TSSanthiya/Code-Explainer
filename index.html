@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code Explainer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+
+  <!-- Our CSS file -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-icon">🔍</div>
+    <h1>Code<span>Lens</span></h1>
+    
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- LEFT SIDE: Code Input -->
+    <div class="panel-left">
+
+      <div class="panel-header">
+        <label>Language</label>
+        <button class="sample-btn" onclick="loadSample()">Load Sample</button>
+      </div>
+
+      <!-- Language Buttons -->
+      <div class="lang-select" id="langSelect">
+        <button class="lang-btn active" data-lang="Python">Python</button>
+        <button class="lang-btn" data-lang="JavaScript">JavaScript</button>
+        <button class="lang-btn" data-lang="Java">Java</button>
+        <button class="lang-btn" data-lang="C++">C++</button>
+        <button class="lang-btn" data-lang="SQL">SQL</button>
+        <button class="lang-btn" data-lang="Other">Other</button>
+      </div>
+
+      <div class="panel-header">
+        <label>Paste Your Code</label>
+      </div>
+
+      <!-- Code Input Box -->
+      <textarea id="codeInput" placeholder="# Paste your code here..."></textarea>
+
+      <!-- Line and Character Count -->
+      <div class="meta-bar">
+        <span>📄 <span id="lineCount">0</span> lines</span>
+        <span>🔤 <span id="charCount">0</span> chars</span>
+      </div>
+
+      <!-- Level Selector and Button -->
+      <div class="controls">
+        <select id="modeSelect">
+          <option value="beginner">🟢 Beginner</option>
+          <option value="intermediate" selected>🟡 Intermediate</option>
+          <option value="expert">🔴 Expert</option>
+        </select>
+        <button class="explain-btn" id="explainBtn" onclick="explainCode()">
+          ✨ Explain Code
+        </button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE: Output -->
+    <div class="panel-right">
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('explain')">Explanation</button>
+        <button class="tab-btn" onclick="showTab('steps')">Step-by-Step</button>
+        <button class="tab-btn" onclick="showTab('tips')">Tips & Issues</button>
+      </div>
+
+      <!-- Empty State (shown before explaining) -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">💡</div>
+        <p>Paste some code on the left and click <strong>Explain Code</strong> to get a plain-English breakdown.</p>
+      </div>
+
+      <!-- Loading Bar (shown while AI is thinking) -->
+      <div id="loadingState">
+        <div class="loading-bar">
+          <div class="loading-bar-fill" id="loadBar"></div>
+        </div>
+        <p id="loadMsg">Analyzing your code...</p>
+      </div>
+
+      <!-- Results -->
+      <div id="resultArea">
+        <div id="tabExplain"></div>
+        <div id="tabSteps"></div>
+        <div id="tabTips"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Our JavaScript file -->
+  <script src="script.js"></script>
+
+</body>
+</html>
