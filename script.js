@@ -1,10 +1,6 @@
-// ============================================
-//  PASTE YOUR GROQ API KEY BELOW
-//  Get free key from: console.groq.com
-//  Key starts with: gsk_...
-// ============================================
+
 const API_KEY = "";
-// ============================================
+
 
 let selectedLang = "Python";
 
